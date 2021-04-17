@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <style>
+        body{
+            background-color:whitesmoke;
+        }
+        .form{
+            margin-left:200px;
+            }
+       label{
+            font-weight:bold;
+            font-family:cambria;
+            font-size:18px
+        }
+        .message{
+            border:2px solid black;
+            border-radius:20px;
+            padding:7px;
+            background-color:white;
+            margin-left:180px;
+            color:black;
+            font-family:cambria;
+            font-size:15px;
+            font-weight:bold;
+            }
+    </style>
+</head>
+<body >
+<div class="form">
+<h1 style="color:#0000ff;">GGSH & CO.LLP Chartered Accountants </h1>
+<h3 style="color:#0000ff;">Registration form</h3>
+<form action='../register/' method="post">
+    {% csrf_token %}
+    <label>First_Name</label><br>
+    <input type="text" name="fname" required><br><br>
+    <label>Last_Name</label><br>
+    <input type="text" name="lname" required><br><br>
+    <label>User_Name</label><br>
+    <input type="text" name="uname" required><br><br>
+    <label>Password</label><br>
+    <input type="password" name="password1"><br><br>
+    <label>Confirm_Password</label><br>
+    <input type="password" name="password2"><br><br>
+        <input type="submit" style="color:white;padding:5px;background-color:blue;font-weight:bold;font-family:cambria;font-size:20px;border-radius:20px;width:150px;">
+    <input type="reset" style="color:white;padding:5px;background-color:blue;font-weight:bold;font-family:cambria;font-size:20px;border-radius:20px;width:150px;"><br/><br/>
+</form>
+</div>
+
+{% if messages %}
+{% for info in messages %}
+<span class='message'>
+    {{ info }}
+</span>
+{% endfor %}
+{% endif %}
+
+</body>
+</html>

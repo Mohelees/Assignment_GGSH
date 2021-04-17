@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <style>
+        body{
+            background-color:whitesmoke;
+        }
+        label{
+            font-weight:bold;
+            font-family:cambria;
+            font-size:18px
+        }
+        .message{
+            border:2px solid black;
+            border-radius:20px;
+            padding:7px;
+            background-color:white;
+            margin-left:30px;
+            color:black;
+            font-family:cambria;
+            font-size:15px;
+            font-weight:bold;
+            }
+    </style>
+</head>
+<body style="margin-left:200px;">
+<h1 style="color:#0000ff;">GGSH & CO.LLP Chartered Accountants</h1>
+<h2 style="color:#000000; ">Account Login </h2>
+<form action="../login/" method="post">
+    {% csrf_token %}
+    <label>UserName</label><br/>
+    <input type="text" name="uname"><br/><br/>
+    <label>Password</label><br/>
+    <input type="password" name="password"><br/><br/>
+    <input type="submit" style="color:white;padding:5px;background-color:blue;font-weight:bold;font-family:cambria;font-size:20px;border-radius:20px;width:150px;">
+    <input type="reset" style="color:white;padding:5px;background-color:blue;font-weight:bold;font-family:cambria;font-size:20px;border-radius:20px;width:150px;"><br><br>
+</form>
+
+{% if messages %}
+{% for info in messages %}
+<span class='message'>
+    {{ info }}
+</span>
+{% endfor %}
+{% endif %}
+</body>
+</html>
